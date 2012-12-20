@@ -8,8 +8,8 @@ g () {
 }
 compdef g=git
 
-alias gl='git log --pretty=oneline --decorate --abbrev-commit'
-compdef _git gl=git-lig
+alias gl='git log --oneline --decorate --graph --all'
+compdef _git gl=git-log
 
 alias gs='git status'
 compdef _git gs=git-status
