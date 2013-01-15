@@ -8,6 +8,9 @@ setopt prompt_subst
 # Load the zsh-syntax-highlighting plugin
 source $DOTFILES_DIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Load the git-flow-completion plugin
+source $DOTFILES_DIR/plugins/git-flow-completion/git-flow-completion.zsh
+
 # Enable highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
