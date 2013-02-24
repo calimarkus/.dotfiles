@@ -13,3 +13,5 @@ compdef _git gl=git-log
 
 alias gs='git status'
 compdef _git gs=git-status
+
+compdef g drop=git checkout --

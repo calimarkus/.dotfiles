@@ -7,6 +7,7 @@
 
 [alias]
   co    = checkout
+  drop  = checkout -- 
   cl    = clone --recursive
   st    = status
   subup = submodule update --recursive --init
