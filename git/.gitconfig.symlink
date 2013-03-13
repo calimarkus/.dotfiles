@@ -16,6 +16,8 @@
   lg    = log --oneline --decorate --graph
   fs    = flow feature start
   ff    = flow feature finish
+  rs    = flow release start
+  rf    = flow release finish
 
 [color]
   branch = auto
