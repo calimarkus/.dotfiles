@@ -1,3 +1,3 @@
 
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR='subl -w'
+export VISUAL='subl -w'
