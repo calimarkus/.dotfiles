@@ -31,7 +31,7 @@ function left_prompt() {
   cols="$(tput cols)"
   if [ "$cols" -gt 88 ]; then
     if [ $(in_git) ]; then
-      echo "$(ssh_prompt)%{$ZSH_THEME_PROMPT_PATH_COLOR%}%2c $(git_prompt)$(git_dirty_state)%{$reset_color%}"
+      echo "$(ssh_prompt)%{$ZSH_THEME_PROMPT_PATH_COLOR%}%2c $(git_prompt)%{$reset_color%}"
     elif [ $(in_hg) ]; then
       echo "$(ssh_prompt)%{$ZSH_THEME_PROMPT_PATH_COLOR%}%2c $(hg_prompt)%{$reset_color%}"
     else
@@ -46,7 +46,7 @@ function right_prompt() {
   cols="$(tput cols)"
   if [ "$cols" -le 88 ]; then
     if [ $(in_git) ]; then
-      echo "$(git_dirty_state)$(git_prompt)%{$reset_color%}"
+      echo "$(git_prompt)%{$reset_color%}"
     elif [ $(in_hg) ]; then
       echo "$(hg_short_prompt)%{$reset_color%}"
     fi
