@@ -1,3 +1,5 @@
+source $DOTFILES_DIR/secret/aliases.zsh
+
 alias edit='open -e'
 alias ll='ls -halF'
 
