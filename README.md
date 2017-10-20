@@ -1,7 +1,6 @@
 # .dotfiles
 
-These are my .dotfiles.
-There are many like them, but these ones are mine.
+My .dotfiles to configure zsh/git/hg/lldb etc. to my needs
 
 ![PROMPT](prompt.png "PROMPT")
 
@@ -10,14 +9,10 @@ There are many like them, but these ones are mine.
 1. Clone it into `~`
 2. Make sure you have the submodules by running `git submodule update --recursive --init`
 3. Run `install.sh`
-
-If you're not me, you may want to configure `~/.dotfiles/secret/.gitconfig` to
-look a little something like this:
+4. Add your git user info in `~/.dotfiles/secret/.gitconfig` like this:
 
 ```
 [user]
   name  = Marty McFly
   email = mmcfly@hillvalley.edu
 ```
-
-If you're me, you know that already.
