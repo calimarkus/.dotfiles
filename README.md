@@ -3,7 +3,7 @@
 These are my .dotfiles.
 There are many like them, but these ones are mine.
 
-![](http://robb.is/img/prompt.png)
+![PROMPT](prompt.png "PROMPT")
 
 ## Install guide
 
