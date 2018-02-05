@@ -28,28 +28,14 @@ function ssh_prompt() {
 }
 
 function left_prompt() {
-  cols="$(tput cols)"
-  if [ "$cols" -gt 88 ]; then
-    if [ $(in_git) ]; then
-      echo "$(ssh_prompt)%{$ZSH_THEME_PROMPT_PATH_COLOR%}%2c $(git_prompt)%{$reset_color%}"
-    elif [ $(in_hg) ]; then
-      echo "$(ssh_prompt)%{$ZSH_THEME_PROMPT_PATH_COLOR%}%2c $(hg_prompt)%{$reset_color%}"
-    else
-      echo "$(ssh_prompt)%{$ZSH_THEME_PROMPT_PATH_COLOR%}%2c %{$reset_color%}"
-    fi
-  else
-    echo "$(ssh_prompt)%{$ZSH_THEME_PROMPT_PATH_COLOR%}%2c %{$reset_color%}"
-  fi
+  echo "$(ssh_prompt)%{$ZSH_THEME_PROMPT_PATH_COLOR%}%2c %{$reset_color%}"
 }
 
 function right_prompt() {
-  cols="$(tput cols)"
-  if [ "$cols" -le 88 ]; then
-    if [ $(in_git) ]; then
-      echo "$(git_prompt)%{$reset_color%}"
-    elif [ $(in_hg) ]; then
-      echo "$(hg_short_prompt)%{$reset_color%}"
-    fi
+  if [ $(in_git) ]; then
+    echo "$(git_prompt)%{$reset_color%}"
+  elif [ $(in_hg) ]; then
+    echo "$(hg_short_prompt)%{$reset_color%}"
   fi
 }
 

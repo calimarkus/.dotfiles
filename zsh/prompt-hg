@@ -1,14 +1,8 @@
 ZSH_THEME_HG_PROMPT_COLOR=$FG[045]
 ZSH_THEME_HG_PROMPT_BOOKMARK_COLOR=$FG[063]
 
-ZSH_THEME_HG_PROMPT_AHEAD_COLOR=$FG[118]
-ZSH_THEME_HG_PROMPT_BEHIND_COLOR=$FG[009]
-
 ZSH_THEME_HG_PROMPT_PREFIX="%{$ZSH_THEME_HG_PROMPT_COLOR%}hg("
 ZSH_THEME_HG_PROMPT_SUFFIX="%{$ZSH_THEME_HG_PROMPT_COLOR%})%{$reset_color%}"
-
-ZSH_THEME_HG_PROMPT_DIRTY="$FG[009] ○"
-ZSH_THEME_HG_PROMPT_CLEAN=""
 
 hg=""
 
@@ -36,33 +30,33 @@ function hg_prompt_bookmark() {
     d=$(cd -P "$d/.." && echo "$PWD")
   done
 
+  local remote="$hg/.hg/remotenames"
   local dirstate=$(test -f $hg/.hg/dirstate && \
     hexdump -vn 20 -e '1/1 "%02x"' $hg/.hg/dirstate || \
     echo "empty")
   local current="$hg/.hg/bookmarks.current"
   if  [[ -f "$current" ]]; then
     br=$(cat "$current")
+  elif [[ -f "$remote" ]]; then
+    local marks=$(grep --color=never "^$dirstate bookmarks" "$remote" | \
+      cut -f 3 -d ' ' | tr '\n' '|' | sed 's/.$//' | sed 's/remote\///g')
+    if [[ -n "$marks" ]]; then
+      br="$marks"
+    else
+      br=$(echo $dirstate | cut -c 1-7)
+    fi
   else
     br=$(echo $dirstate | cut -c 1-7)
   fi
+
   if [ -n "$br" ]; then
     echo "$ZSH_THEME_HG_PROMPT_BOOKMARK_COLOR$br"
   fi
 }
 
-function hg_prompt_branch() {
-  echo "$ZSH_THEME_HG_PROMPT_BOOKMARK_COLOR$(hg branch)"
-}
-
-function hg_prompt {
-  if [ $(in_hg) ]; then
-    echo "$ZSH_THEME_HG_PROMPT_PREFIX$(hg_prompt_branch)/$(hg_prompt_bookmark)$(hg_extra)$ZSH_THEME_HG_PROMPT_SUFFIX$(hg_prompt_dirty)$ZSH_THEME_HG_PROMPT_CLEAN"
-  fi
-}
-
 function hg_short_prompt {
   if [ $(in_hg) ]; then
-    echo "$ZSH_THEME_HG_PROMPT_PREFIX$(hg_prompt_bookmark)$(hg_extra)$ZSH_THEME_HG_PROMPT_SUFFIX$(hg_prompt_dirty)$ZSH_THEME_HG_PROMPT_CLEAN"
+    echo "$ZSH_THEME_HG_PROMPT_PREFIX$(hg_prompt_bookmark)$(hg_extra)$ZSH_THEME_HG_PROMPT_SUFFIX"
   fi
 }
 
@@ -92,25 +86,6 @@ function hg_extra {
       extra="|MERGE"
     fi
   echo $extra
-}
-
-function hg_prompt_dirty_choose {
-  echo $2
-  return
-  if [ $(in_hg) ]; then
-    hg status 2> /dev/null | grep -Eq '^\s*[ACDIM!?L]'
-    if [ $pipestatus[-1] -eq 0 ]; then
-      # Grep exits with 0 when "One or more lines were selected", return "dirty".
-      echo $1
-    else
-      # Otherwise, no lines were found, or an error occurred. Return clean.
-      echo $2
-    fi
-  fi
-}
-
-function hg_prompt_dirty {
-  hg_prompt_dirty_choose $ZSH_THEME_HG_PROMPT_DIRTY
 }
 
 function hgic() {
