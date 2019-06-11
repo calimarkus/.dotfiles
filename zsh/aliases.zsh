@@ -5,6 +5,7 @@ fi
 
 alias edit='open -e'
 alias ll='ls -halF'
+alias findhere='find . -name'
 
 # Quick way to rebuild the Launch Services database and get rid
 # of duplicates in the Open With submenu.
