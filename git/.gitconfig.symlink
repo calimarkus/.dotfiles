@@ -8,6 +8,7 @@
 [alias]
   co    = checkout
   drop  = checkout -- 
+  cp    = cherry-pick
   cl    = clone --recursive
   st    = status
   subup = submodule update --recursive --init
@@ -34,4 +35,5 @@
 [difftool]
   prompt = false
 
-
+[init]
+	defaultBranch = main
