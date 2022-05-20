@@ -8,6 +8,7 @@
 [alias]
   co    = checkout
   drop  = checkout -- 
+  head  = checkout HEAD -- 
   cp    = cherry-pick
   cl    = clone --recursive
   st    = status
