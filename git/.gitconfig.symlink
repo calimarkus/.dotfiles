@@ -20,6 +20,7 @@
   ff    = flow feature finish
   rs    = flow release start
   rf    = flow release finish
+  cm    = commit -m
 
 [color]
   branch = auto
@@ -38,3 +39,6 @@
 
 [init]
 	defaultBranch = main
+
+[help]
+  autocorrect = prompt
