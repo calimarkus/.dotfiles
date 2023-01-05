@@ -2,6 +2,12 @@
   excludesfile = ~/.gitignore
   editor       = "/usr/local/bin/subl -w"
 
+[push]
+  default = current
+
+[init]
+  defaultBranch = main
+
 [alias]
   co    = checkout
   drop  = checkout -- 
@@ -26,17 +32,11 @@
   status = auto
   ui     = true
 
-[push]
-  default = current
-
 [diff]
   tool = opendiff
 
 [difftool]
   prompt = false
-
-[init]
-	defaultBranch = main
 
 [help]
   autocorrect = prompt
