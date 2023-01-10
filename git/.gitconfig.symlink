@@ -25,6 +25,7 @@
   rf    = flow release finish
   cm    = commit -m
   ca    = commit --amend
+  aa    = add .
 
 [color]
   branch = auto
