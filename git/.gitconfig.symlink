@@ -16,7 +16,7 @@
   cl    = clone --recursive
   st    = status
   subup = submodule update --recursive --init
-  puff  = pull --ff --ff-only
+  puff  = pull --ff --ff-only -p
   hub   = !hub
   lg    = log --oneline --decorate --graph
   fs    = flow feature start
