@@ -26,6 +26,8 @@
   cm    = commit -m
   ca    = commit --amend
   aa    = add .
+  branches = branch -l
+  allbranches = branch -la
 
 [color]
   branch = auto
