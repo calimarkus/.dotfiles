@@ -21,3 +21,6 @@ alias fixSteamMic='sudo sqlite3 ~/Library/Application\ Support/com.apple.TCC/TCC
 # faster time machine backups
 alias fastBackupOn='sudo sysctl debug.lowpri_throttle_enabled=1'
 alias fastBackupOff='sudo sysctl debug.lowpri_throttle_enabled=0'
+
+# coloured diff side by side
+alias diff='diff -W $(( $(tput cols) - 2 )) --color=always --side-by-side'
