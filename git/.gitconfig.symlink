@@ -18,6 +18,7 @@
   st    = status
   subup = submodule update --recursive --init
   puff  = pull --ff --ff-only -p
+  pushf = push --force-with-lease
   hub   = !hub
   lg    = log --oneline --decorate --graph
   fs    = flow feature start
