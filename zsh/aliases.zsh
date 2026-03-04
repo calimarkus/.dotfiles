@@ -4,6 +4,8 @@ then
 fi
 
 alias edit='open -e'
+alias clear='printf "\033[H\033[2J"'
+alias clearFull='printf "\033[H\033[2J\033[3J"' # erases scrollback
 alias ll='ls -halF'
 alias findhere='find . -name'
 
