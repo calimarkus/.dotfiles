@@ -12,6 +12,7 @@ alias findhere='find . -name'
 alias openDerivedData='open ~/Library/Developer/Xcode/DerivedData'
 alias deleteDerivedData='; echo Deleting "~/Library/Developer/Xcode/DerivedData"; rm -rf ~/Library/Developer/Xcode/DerivedData; echo Deleted.'
 
+alias python='python3'
 alias pip3='python3 -m pip'
 
 # Quick way to rebuild the Launch Services database and get rid
