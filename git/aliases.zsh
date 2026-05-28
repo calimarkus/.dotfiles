@@ -14,6 +14,9 @@ compdef _git gl=git-log
 alias gl2='git log --oneline --graph --all'
 compdef _git gl2=git-log
 
+alias glo='git log --oneline --graph'
+compdef _git glo=git-log
+
 alias gs='git status'
 compdef _git gs=git-status
 
