@@ -25,11 +25,6 @@ setopt auto_menu
 # Enable spelling correction
 setopt correct
 
-# Homebrew
-if which brew &> /dev/null; then
-  export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-fi
-
 # Python
 export PATH="$(brew --prefix python@3.12)/bin:$PATH"
 
