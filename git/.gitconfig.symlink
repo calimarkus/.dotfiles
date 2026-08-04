@@ -17,7 +17,7 @@
   cl    = clone --recursive
   st    = status
   subup = submodule update --recursive --init
-  puff  = pull --ff --ff-only -p
+  puff  = !git pull --ff --ff-only && git pull -p
   pushf = push --force-with-lease
   hub   = !hub
   lg    = log --oneline --decorate --graph
